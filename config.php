@@ -1,10 +1,15 @@
 <?php
 
-$mysql_db = "db";
+$mysql_db = "protomin";
 $mysql_host = "localhost";
-$mysql_user = "user";
-$mysql_pass = "password";
-$baseUrl = "http://www.protospace.ca/";
-$error404 = "http://www.protospace.ca/"
+$mysql_user = "root";
+$mysql_pass = "";
+$baseUrl = "http://localhost:8988/protomin/";
+$error404 = "http://www.protospace.ca/";
+
+function http_redirect($url) {
+    header("Location: $url");
+    exit();
+}
 
 ?>

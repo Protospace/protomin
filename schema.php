@@ -1,6 +1,6 @@
 <?php
 
-include 'config.php';
+require 'config.php';
 
 $con = mysql_connect($mysql_host, $mysql_user, $mysql_pass);
 
@@ -25,6 +25,7 @@ if(!$db) {
 $result = mysql_query("CREATE TABLE IF NOT EXISTS `urls` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `url` TEXT NOT NULL ,
+  `created` DATETIME NOT NULL ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) )");
 

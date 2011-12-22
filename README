@@ -1,0 +1,79 @@
+==============================
+==         Protomin         ==
+==      URL minimizer       ==
+==============================
+
+o Modify .htaccess to properly
+    protect the schema.php and
+    create.php files.
+o Update config.php with your
+    settings
+o run schema.php to create the
+    tables and/or the database.
+o run create.php to create
+    minified urls.
+  i create.php expects a GET
+    request with
+    ?url=http://myurl as a
+    query parameter.
+  i running create.php without
+    this parameter will
+    display a url creation
+    form.
+  i once a url is created
+    create.php will return the
+    minified url as plain text.
+    This url is based off of
+    your configuration.
+    
+==============================
+==          Schema          ==
+==============================
+
+------------------------------
+- urls                       -
+------------------------------
+- id int(11) PK AI           -
+-   the hex representation of-
+-   this value is the        -
+-   minified url argument.   -
+- created datetime NN        -
+-   the time when the url was-
+-   created.                 -
+------------------------------
+
+------------------------------
+- urltracking                -
+------------------------------
+- id int(11) PK AI           -
+- urlId int(11) NN           -
+-    loose reference to urls -
+- time datetime NN           -
+-    time this record was    -
+-    inserted.               -
+- clientip varchar(45)       -
+-    requesting client's ip  -
+- method varchar(10)         -
+-    http method used for the-
+-    request.                -
+- serverRequestTime varchar  -
+   (45)                      -
+-    the time the request was-
+-    made.
+- useragent text             -
+-    client's user agent.    -
+- referer text               -
+-    client's refering url.  -
+- querystring text           -
+-    the query string on the -
+-    request uri             -
+- requesturi text            -
+-    the request made by the -
+-    client. This will be the-
+-    minified url.           -
+------------------------------
+
+==============================
+==    Thomas LaFreniere     ==
+==    December 22, 2011     ==
+==============================
